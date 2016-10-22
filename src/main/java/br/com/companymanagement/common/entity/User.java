@@ -1,11 +1,11 @@
 package br.com.companymanagement.common.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.companymanagement.common.enums.Role;
@@ -14,8 +14,7 @@ import br.com.companymanagement.common.enums.Role;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long cpf;
 
 	private String name;
 	
@@ -27,13 +26,17 @@ public class User {
 	@Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
+	
+	private Date birthdate;
+	
+	private Double salary;
 
-	public Long getId() {
-		return id;
+	public Long getCpf() {
+		return cpf;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getName() {
@@ -66,6 +69,22 @@ public class User {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 	
 }

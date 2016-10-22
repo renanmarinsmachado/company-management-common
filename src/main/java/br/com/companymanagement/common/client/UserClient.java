@@ -20,6 +20,6 @@ public class UserClient {
 	
 	public UserDTO getUserByUsername(String username){
 		RestTemplate restTemplate = new RestTemplate();
-		return restTemplate.postForObject("", new UserDTO(POST_USER_FILTER, username, ""), UserDTO.class);
+		return restTemplate.postForObject(POST_USER_FILTER, new UserDTO("", username, ""), UserDTO.class);
 	}
 }

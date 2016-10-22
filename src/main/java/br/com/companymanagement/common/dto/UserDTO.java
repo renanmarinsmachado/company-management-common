@@ -1,10 +1,12 @@
 package br.com.companymanagement.common.dto;
 
+import java.util.Date;
+
 import br.com.companymanagement.common.enums.Role;
 
 public class UserDTO {
 
-	private Long id;
+	private Long cpf;
 
 	private String name;
 	
@@ -13,6 +15,10 @@ public class UserDTO {
 	private String password;
 	
     private Role role;
+    
+    private Date birthdate;
+	
+	private Double salary;
 
     public UserDTO() {
 		// TODO Auto-generated constructor stub
@@ -23,13 +29,24 @@ public class UserDTO {
 		this.username = username;
 		this.password = password;
 	}
-
-	public Long getId() {
-		return id;
+	
+	public UserDTO(Long cpf, String name, String username, String password, Role role, Date birthdate, Double salary) {
+		super();
+		this.cpf = cpf;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.birthdate = birthdate;
+		this.salary = salary;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getName() {
@@ -63,5 +80,20 @@ public class UserDTO {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-    
+
+	public Date getBirthdate() {
+		return birthdate;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
 }
