@@ -2,8 +2,18 @@ package br.com.companymanagement.common.dto;
 
 import java.util.Date;
 
-import br.com.companymanagement.common.enums.Role;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import br.com.companymanagement.common.enums.Role;
+import br.com.companymanagement.common.serialization.DateDeserializer;
+import br.com.companymanagement.common.serialization.DateSerializer;
+
+@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDTO {
 
 	private Long cpf;
@@ -16,6 +26,8 @@ public class UserDTO {
 	
     private Role role;
     
+    @JsonSerialize(using = DateSerializer.class)
+    @JsonDeserialize(using = DateDeserializer.class)
     private Date birthdate;
 	
 	private Double salary;
